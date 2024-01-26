@@ -26,9 +26,6 @@ export function SmoothScrollProvider({
             new LocomotiveScroll({
               el:
                 document.querySelector("[data-scroll-container]") ?? undefined,
-              mobile: {
-                smooth: true,
-              },
               ...options,
             })
           );

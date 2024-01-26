@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/header/haeder";
+import Header from "@/components/header/header";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/context/smoothScroll";
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-background no-scrollbar text-text transition-colors`}
+        className={`${inter.className} bg-background no-scrollbar text-text transition-colors overflow-x-hidden `}
       >
         <SmoothScrollProvider options={{ smooth: true }}>
           <Header />

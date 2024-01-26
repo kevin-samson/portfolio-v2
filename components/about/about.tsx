@@ -7,6 +7,7 @@ function About() {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "start end"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["20px", "0px"]);
@@ -17,11 +18,11 @@ function About() {
       id="about"
       data-scroll
       data-scroll-speed="0"
-      className="h-[85dvh] bg-background dark rounded-xl relative"
+      className="h-[85dvh] bg-text rounded-xl relative"
     >
       <div className="flex flex-col p-5">
-        <h1 ref={targetRef} className="text-text text-6xl dark">
-          About
+        <h1 ref={targetRef} className="text-background text-5xl md:text-6xl ">
+          About Me &darr;
         </h1>
       </div>
     </motion.section>

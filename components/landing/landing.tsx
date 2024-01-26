@@ -3,7 +3,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { GrInstagram } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
-import image from "@/public/image.svg";
+import image from "@/public/hom.png";
 
 function Landing() {
   return (
@@ -17,9 +17,8 @@ function Landing() {
         <RiTwitterXFill />
         <GrInstagram />
         <FaLinkedin />
-        <Image src={image} alt="next" />
       </div>
-      <div className="w-full"></div>
+      <div className="w-full h-full flex items-end justify-center"></div>
       <div className="hidden md:flex h-full w-1/12  flex-col items-center justify-end pb-8">
         <h6 className="rotate-90">scroll &rarr;</h6>
       </div>
