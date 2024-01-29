@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SmoothScrollContext } from "@/context/smoothScroll";
 
 function contact() {
-  return <div className="h-screen">contact</div>;
+  const { scroll } = useContext(SmoothScrollContext);
+  return (
+    <section id="contact" className="h-screen">
+      contact
+    </section>
+  );
 }
 
 export default contact;

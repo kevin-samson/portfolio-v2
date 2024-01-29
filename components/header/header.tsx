@@ -74,7 +74,12 @@ export default function Header() {
             >
               Projects
             </a>
-            <div className="mr-4 cursor-pointer">Contact</div>
+            <a
+              className="mr-4 cursor-pointer"
+              onClick={() => scrollTo("contact")}
+            >
+              Contact
+            </a>
           </nav>
         </div>
       </div>
@@ -98,7 +103,9 @@ export default function Header() {
           }`}
         ></div>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Sidenav />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Sidenav setIsActive={setIsActive} />}
+      </AnimatePresence>
     </div>
   );
 }

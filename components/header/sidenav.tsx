@@ -1,8 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Curve from "./curve";
+import Link from "next/link";
 
-function Sidenav() {
+function Sidenav({
+  setIsActive,
+}: {
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -27,10 +32,38 @@ function Sidenav() {
           <div className="h-[1px] w-full bg-background"></div>
         </div>
         <div className="flex flex-col text-6xl md:text-7xl space-y-3">
-          <a>Home</a>
-          <a>About</a>
-          <a>Projects</a>
-          <a>Contact</a>
+          <Link
+            href="/"
+            onClick={() => {
+              setIsActive(false);
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            href="/#about"
+            onClick={() => {
+              setIsActive(false);
+            }}
+          >
+            About
+          </Link>
+          <Link
+            href="/#projects"
+            onClick={() => {
+              setIsActive(false);
+            }}
+          >
+            Projects
+          </Link>
+          <Link
+            href="/#contact"
+            onClick={() => {
+              setIsActive(false);
+            }}
+          >
+            Contact
+          </Link>
         </div>
         <div className="flex w-full justify-evenly">
           <p>Socials &rarr; </p>
