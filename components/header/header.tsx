@@ -4,12 +4,14 @@ import { useAnimate, AnimatePresence } from "framer-motion";
 import { SmoothScrollContext } from "@/context/smoothScroll";
 import { useRouter } from "next/navigation";
 import Sidenav from "./sidenav";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
   const [scope, animate] = useAnimate();
   const [scrolling, setScrolling] = useState(false);
   const { scroll } = useContext(SmoothScrollContext);
+  const pathname = usePathname();
   const router = useRouter();
 
   const scrollTo = (id: String) => {
@@ -41,7 +43,11 @@ export default function Header() {
   }, [scrolling]);
 
   return (
-    <div className="z-20 w-full absolute  px-3">
+    <div
+      className={`z-20 w-full ${
+        pathname.substring(1).startsWith("projects") ? " " : "absolute"
+      }  px-3`}
+    >
       <div className="flex justify-between items-center p-4">
         <div className="text-2xl font-bold" onClick={() => scrollTo("home")}>
           Logo
