@@ -50,7 +50,7 @@ export default function Header() {
     >
       <div className="flex justify-between items-center p-4">
         <div className="text-2xl font-bold" onClick={() => scrollTo("home")}>
-          Logo
+          KS
         </div>
         <div className="flex items-center">
           <nav
