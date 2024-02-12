@@ -6,8 +6,10 @@ import { FaLinkedin } from "react-icons/fa";
 import { PiReadCvLogoLight } from "react-icons/pi";
 import Image from "next/image";
 import { motion, useAnimate } from "framer-motion";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 function Landing() {
+  const { width } = useWindowSize();
   const [scope, animate] = useAnimate();
   const marqueeVariants = {
     animate: {
@@ -52,22 +54,28 @@ function Landing() {
       </div>
       <div className="w-screen h-screen relative">
         <div className="absolute text-[15dvh] whitespace-nowrap bottom-72">
-          <motion.p
-            ref={scope}
-            animate="animate"
-            className="relative"
-            variants={marqueeVariants}
-          >
-            Hi, I am <span className="text-primary">Kevin Samson</span>
-          </motion.p>
-          <motion.p
-            animate="animate"
-            className="text-[10dvh]"
-            variants={marqueeVariants2}
-          >
-            {" "}
-            Devloper and a Computer Eutusiast
-          </motion.p>
+          {width && width > 768 ? (
+            <>
+              <motion.p
+                ref={scope}
+                animate="animate"
+                className="relative"
+                variants={marqueeVariants}
+              >
+                Hi, I am <span className="text-primary">Kevin Samson</span>
+              </motion.p>
+              <motion.p
+                animate="animate"
+                className="text-[10dvh]"
+                variants={marqueeVariants2}
+              >
+                {" "}
+                Devloper and a Computer Eutusiast
+              </motion.p>
+            </>
+          ) : (
+            ""
+          )}
         </div>
         <div className="w-screen absolute bottom-0 flex justify-center md:left-52">
           <Image

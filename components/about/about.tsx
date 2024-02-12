@@ -1,20 +1,17 @@
 import React, { useRef, useContext } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { SmoothScrollContext } from "@/context/smoothScroll";
-import Image from "next/image";
 
 function About() {
-  const { scroll } = useContext(SmoothScrollContext);
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "0.4 end"],
+    offset: ["start 0.4", "end 0.8"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["30px", "0px"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["20px", "0px"]);
 
   return (
-    <div ref={targetRef} className="bg-background  relative">
+    <div className="bg-background  relative">
       <motion.section
         style={{ marginRight: y, marginLeft: y }}
         id="about"
@@ -25,10 +22,13 @@ function About() {
         <div className="flex flex-col p-5 gap-8">
           <div className="flex md:flex-row flex-col w-[90dvw] gap-10">
             <div className="text-background dark:text-text md:w-1/2 md:text-xl text-pretty">
-              <h1 className="text-background dark:text-text text-5xl md:text-6xl ">
+              <h1
+                ref={targetRef}
+                className="text-background dark:text-text text-5xl md:text-6xl "
+              >
                 About Me &darr;
               </h1>
-              <p>
+              <p className="text-lg">
                 {`Hey, I'm Kevin Samson, a 20-year-old Computer Engineering
                 student at BITS Pilani Dubai Campus. I'm all about the tech life
                 — playing around with APIs, building cool websites, and making

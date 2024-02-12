@@ -1,10 +1,8 @@
 import React, { useContext, useState } from "react";
-import { SmoothScrollContext } from "@/context/smoothScroll";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 function Contact() {
-  const { scroll } = useContext(SmoothScrollContext);
   const [isHovered, setHovered] = useState(false);
   function getTimeString(): string {
     const date = new Date();
@@ -22,11 +20,11 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="h-screen w-screen flex flex-col items-center justify-between"
+      className="h-screen w-screen flex flex-col items-center justify-between mt-16"
     >
       <div className="flex flex-col gap-0">
         <h1
-          className="text-[5dvw] font-extrabold m-0"
+          className="text-[5dvh] md:text-[6dvw] font-extrabold m-0"
           onMouseEnter={() => setHovered(false)}
           onMouseLeave={() => setHovered(true)}
         >
@@ -41,7 +39,7 @@ function Contact() {
       </div>
       <div>Im to lazy, just dm me</div>
       <div className="h-32 bg-[#DCE8E9] dark:bg-[#152223] w-full flex justify-between px-9 items-center">
-        <div className="font-bold text-5xl">
+        <div className="font-bold text-3xl">
           <p>© 2024</p>
           <p>Kevin Samson</p>
         </div>

@@ -24,6 +24,9 @@ export function SmoothScrollProvider({
 
           setScroll(
             new LocomotiveScroll({
+              mobile: {
+                smooth: false,
+              },
               el:
                 document.querySelector("[data-scroll-container]") ?? undefined,
               ...options,
