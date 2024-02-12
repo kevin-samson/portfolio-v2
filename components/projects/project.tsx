@@ -7,8 +7,7 @@ import React, {
 } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { SmoothScrollContext } from "@/context/smoothScroll";
-import Image from "next/image";
-
+import { FaExternalLinkAlt } from "react-icons/fa";
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
@@ -24,10 +23,16 @@ function Project({
   title,
   description,
   imgs,
+  techUsed,
+  link,
+  liveLink,
 }: {
   title: string;
   description: string;
   imgs: string[];
+  techUsed: string[];
+  link: string;
+  liveLink?: string;
 }) {
   const { scroll } = useContext(SmoothScrollContext);
   const [imgIndex, setImgIndex] = useState(0);
@@ -66,35 +71,51 @@ function Project({
       data-scroll
       data-scroll-speed="0"
       id={title}
-      className="h-[90dvh] md:h-[85dvh] w-[85dvw] md:w-[40dvw] dark:bg-[#132229] bg-[#D6E5EC] relative text-text rounded-3xl flex flex-col  p-7 "
+      className="h-[90dvh] md:h-[70dvh] w-[85dvw] md:w-[28dvw] dark:bg-[#132229] bg-[#D6E5EC] relative text-text rounded-3xl flex flex-col items-center justify-evenly gap-3 px-5 py-3"
     >
-      <div className="absolute -bottom-5 -right-2 text-6xl font-extralight text-text">
+      <div className="absolute -bottom-7 -right-2 text-6xl font-extralight text-text">
         {title}
       </div>
-      <div className="relative h-full w-full overflow-hidden bg-neutral-950 py-8">
-        <motion.div
-          drag="x"
-          dragConstraints={{
-            left: 0,
-            right: 0,
-          }}
-          style={{
-            x: dragX,
-          }}
-          animate={{
-            translateX: `-${imgIndex * 100}%`,
-          }}
-          transition={SPRING_OPTIONS}
-          onDragEnd={onDragEnd}
-          className="h-full w-full flex cursor-grab items-center active:cursor-grabbing"
-        >
-          <Images imgIndex={imgIndex} imgs={imgs} />
-        </motion.div>
+      <div className="h-full w-full flex flex-col gap-5">
+        <div className="relative h-[60%] w-full overflow-hidden pb-8 ">
+          <motion.div
+            drag="x"
+            dragConstraints={{
+              left: 0,
+              right: 0,
+            }}
+            style={{
+              x: dragX,
+            }}
+            animate={{
+              translateX: `-${imgIndex * 100}%`,
+            }}
+            transition={SPRING_OPTIONS}
+            onDragEnd={onDragEnd}
+            className="h-full w-full flex cursor-grab items-center active:cursor-grabbing"
+          >
+            <Images imgIndex={imgIndex} imgs={imgs} />
+          </motion.div>
 
-        <Dots imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
-        <GradientEdges />
+          <Dots imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
+          <GradientEdges />
+        </div>
+        <TechUsed techUsed={techUsed} />
+        <p>{description}</p>
       </div>
-      <p>{description}</p>
+      <div className="h-16 w-full flex gap-2">
+        <a href={link} target="_blank" className="h-full w-full bg-secondary rounded-md flex justify-center items-center gap-2">
+          GitHub Repo <FaExternalLinkAlt />
+        </a>
+        {liveLink && (<a
+        target="_blank"
+          href={liveLink}
+          className="h-full w-1/2 bg-primary rounded-md flex justify-center items-center gap-2"
+        >
+          Live Site <FaExternalLinkAlt />
+        </a>)}
+        
+      </div>
     </div>
   );
 }
@@ -153,6 +174,24 @@ const GradientEdges = () => {
       <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
       <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
     </>
+  );
+};
+
+const TechUsed = ({ techUsed }: { techUsed: string[] }) => {
+  return (
+    <div className="flex gap-2 flex-wrap">
+      {techUsed.map((name, idx) => {
+        return <TechUsedButton key={idx} name={name} />;
+      })}
+    </div>
+  );
+};
+
+const TechUsedButton = ({ name }: { name: string }) => {
+  return (
+    <div className="px-2 py-1 rounded-md dark:bg-[#192C38] bg-[#C7DAE6] ring-1 ring-secondary text-text">
+      {name}
+    </div>
   );
 };
 

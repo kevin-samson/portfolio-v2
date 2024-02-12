@@ -9,7 +9,7 @@ function Projects_pc() {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start 0.6", "end center"],
+    offset: ["start 0.9", "end center"],
   });
 
   const springTransfrom = useSpring(scrollYProgress, {
@@ -17,7 +17,7 @@ function Projects_pc() {
     damping: 90,
   });
 
-  const x = useTransform(springTransfrom, [0, 1], ["50%", "-95%"]);
+  const x = useTransform(springTransfrom, [0, 1], ["70%", "-95%"]);
 
   return (
     <section
