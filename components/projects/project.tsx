@@ -54,7 +54,7 @@ function Project({
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, []);
+  }, [dragX, imgs.length]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -104,17 +104,22 @@ function Project({
         <p>{description}</p>
       </div>
       <div className="h-16 w-full flex gap-2">
-        <a href={link} target="_blank" className="h-full w-full bg-secondary rounded-md flex justify-center items-center gap-2">
+        <a
+          href={link}
+          target="_blank"
+          className="h-full w-full bg-secondary rounded-md flex justify-center items-center gap-2"
+        >
           GitHub Repo <FaExternalLinkAlt />
         </a>
-        {liveLink && (<a
-        target="_blank"
-          href={liveLink}
-          className="h-full w-1/2 bg-primary rounded-md flex justify-center items-center gap-2"
-        >
-          Live Site <FaExternalLinkAlt />
-        </a>)}
-        
+        {liveLink && (
+          <a
+            target="_blank"
+            href={liveLink}
+            className="h-full w-1/2 bg-primary rounded-md flex justify-center items-center gap-2"
+          >
+            Live Site <FaExternalLinkAlt />
+          </a>
+        )}
       </div>
     </div>
   );

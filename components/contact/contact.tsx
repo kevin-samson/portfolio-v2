@@ -3,19 +3,19 @@ import { SmoothScrollContext } from "@/context/smoothScroll";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-function getTimeString(): string {
-  const date = new Date();
-  const hours = date.getHours() % 12;
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  const meridian = hours >= 12 ? "PM" : "AM";
-  const gmtOffset = (date.getTimezoneOffset() / 60) * -1;
-  const formattedTime = `${hours}:${minutes} ${meridian} GMT+${gmtOffset}`;
-
-  return formattedTime;
-}
-function contact() {
+function Contact() {
   const { scroll } = useContext(SmoothScrollContext);
   const [isHovered, setHovered] = useState(false);
+  function getTimeString(): string {
+    const date = new Date();
+    const hours = date.getHours() % 12;
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const meridian = hours >= 12 ? "PM" : "AM";
+    const gmtOffset = (date.getTimezoneOffset() / 60) * -1;
+    const formattedTime = `${hours}:${minutes} ${meridian} GMT+${gmtOffset}`;
+
+    return formattedTime;
+  }
 
   const currentTime = getTimeString();
 
@@ -60,4 +60,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

@@ -40,7 +40,7 @@ export default function Header() {
       animate(scope.current, { scale: 0 });
       setIsActive(false);
     }
-  }, [scrolling]);
+  }, [scrolling, animate, scope]);
 
   return (
     <div

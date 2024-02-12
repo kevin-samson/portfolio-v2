@@ -29,10 +29,10 @@ function About() {
                 About Me &darr;
               </h1>
               <p>
-                Hey, I'm Kevin Samson, a 20-year-old Computer Engineering
+                {`Hey, I'm Kevin Samson, a 20-year-old Computer Engineering
                 student at BITS Pilani Dubai Campus. I'm all about the tech life
                 — playing around with APIs, building cool websites, and making
-                things easier by automating the boring stuff.
+                things easier by automating the boring stuff.`}
               </p>
               <br />
               <span className="text-3xl">My Belief &darr;</span>
