@@ -77,6 +77,28 @@ function Landing() {
             ""
           )}
         </div>
+        {width && width < 768 ? (
+          <div className="mt-24 w-screen overflow-x-hidden whitespace-nowrap">
+            <motion.p
+              ref={scope}
+              animate="animate"
+              className="relative text-[10dvh]"
+              variants={marqueeVariants}
+            >
+              Hi, I am <span className="text-primary">Kevin Samson</span>
+            </motion.p>
+            <motion.p
+              animate="animate"
+              className="text-[10dvh]"
+              variants={marqueeVariants2}
+            >
+              {" "}
+              Devloper and a Computer Eutusiast
+            </motion.p>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="w-screen absolute bottom-0 flex justify-center md:left-52">
           <Image
             src="/hom.png"
