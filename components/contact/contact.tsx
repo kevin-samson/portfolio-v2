@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Title from "@/components/reuse/title";
 
 function Contact() {
   const [isHovered, setHovered] = useState(false);
@@ -22,21 +23,7 @@ function Contact() {
       id="contact"
       className="h-screen w-screen flex flex-col items-center justify-between mt-16"
     >
-      <div className="flex flex-col gap-0">
-        <h1
-          className="text-[5dvh] md:text-[6dvw] font-extrabold m-0"
-          onMouseEnter={() => setHovered(false)}
-          onMouseLeave={() => setHovered(true)}
-        >
-          GET IN TOUCH
-        </h1>
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: isHovered ? "0%" : "100%" }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="h-2 bg-primary"
-        ></motion.div>
-      </div>
+      <Title title="GET IN TOUCH" />
       <div>Im to lazy, just dm me</div>
       <div className="h-32 bg-[#DCE8E9] dark:bg-[#152223] w-full flex justify-between px-9 items-center">
         <div className="font-bold text-3xl">

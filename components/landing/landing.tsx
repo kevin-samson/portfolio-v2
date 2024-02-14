@@ -6,6 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { PiReadCvLogoLight } from "react-icons/pi";
 import Image from "next/image";
 import { motion, useAnimate } from "framer-motion";
+import { FaGitSquare } from "react-icons/fa";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 function Landing() {
@@ -47,14 +48,26 @@ function Landing() {
       className="flex h-dvh bg-background relative"
     >
       <div className="md:flex h-full w-1/12  flex-col items-center justify-end text-2xl space-y-6 pb-8 hidden text-text">
-        <PiReadCvLogoLight />
-        <RiTwitterXFill />
-        <GrInstagram />
-        <FaLinkedin />
+        <a>
+          <PiReadCvLogoLight />
+        </a>
+
+        <a href="https://twitter.com/Kevin_Samson_" target="_blank">
+          <RiTwitterXFill />
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <GrInstagram />
+        </a>
+        <a href="https://www.linkedin.com/in/kevin-samson--/" target="_blank">
+          <FaLinkedin />
+        </a>
+        <a href="https://github.com/kevin-samson" target="_blank">
+          <FaGitSquare />
+        </a>
       </div>
       <div className="w-screen h-screen relative">
         <div className="absolute text-[15dvh] whitespace-nowrap bottom-72">
-          {width && width > 768 ? (
+          {width && width > 1000 ? (
             <>
               <motion.p
                 ref={scope}
@@ -77,7 +90,7 @@ function Landing() {
             ""
           )}
         </div>
-        {width && width < 768 ? (
+        {width && width < 1000 ? (
           <div className="mt-24 w-screen overflow-x-hidden whitespace-nowrap">
             <motion.p
               ref={scope}

@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { SmoothScrollContext } from "@/context/smoothScroll";
 import { useSpring } from "framer-motion";
 import Project_list from "./project_list";
+import Title from "@/components/reuse/title";
 
 function Projects_pc() {
   const { scroll } = useContext(SmoothScrollContext);
@@ -24,9 +25,9 @@ function Projects_pc() {
       id="projects"
       data-scroll
       data-scroll-speed="0"
-      className="mx-3 rounded-xl relative"
+      className="mx-3 rounded-xl md:flex md:flex-col md:items-center md:mt-48"
     >
-      <h1 className="text-text text-6xl px-5 mt-7">My Creations &darr;</h1>
+      <Title title="MY CREATIONS" />
       <div ref={targetRef} className="h-[250dvh]">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <motion.div
